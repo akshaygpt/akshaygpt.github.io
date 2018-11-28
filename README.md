@@ -1,14 +1,14 @@
 # akshaygpt.github.io
-A repository for all the display-able projects that I've worked on.
+Some displayable projects I've worked on.
 
 Checkout:
 
-1) Museum of Mystery - https://akshaygpt.github.io/Museum-of-Mystery
+1) The Gratitude Project
 
-2) React Drag and Drop - https://akshaygpt.github.io/React-Drag-and-Drop
-
+2) Experiments with Interactive patterns:
+    https://editor.p5js.org/akshaygpt/sketches/H18NJq2CQ
+    https://editor.p5js.org/akshaygpt/sketches/SJCeknYAQ
+    
 3) Freelance project - http://sikkimtemitea.com
 
-4) The Gratitude Project
-
-5) Github Gists - https://gist.github.com/akshaygpt
+4) Museum of Mystery - https://akshaygpt.github.io/Museum-of-Mystery
