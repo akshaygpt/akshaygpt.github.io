@@ -5,7 +5,7 @@ Checkout:
 
 1) [**Bear With me**](https://akshaygpt.github.io/Bear-With-Me)
 
-> A small bear search app demonstrating common React patterns for building scalable web apps which are able to handle sync and async operations
+> A small bear search app demonstrating common React and Redux patterns for building scalable web apps which are able to handle sync and async operations
 
 2) **Experiments with interactive patterns**:
 
