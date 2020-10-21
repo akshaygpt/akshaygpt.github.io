@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastejacker</title>
+</head>
+<style>
+    body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        line-height: 1.6rem;
+        text-align: center;
+    }
+    main {
+        padding: 0.5rem;
+        border: 1px solid #aaa;
+        border-radius: 4px; 
+    }
+    main > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem auto;
+    }
+    main > div span, main > div label {
+        margin-right: 0.5rem;
+    }
+    summary {
+        margin: 2rem auto 1rem;
+        font-size: 0.9rem;
+    }
+    aside {
+        margin: 2rem auto;
+        font-size: 0.9rem;
+    }
+</style>
+<body>
+
+    <h1>Pastejacking demo</h1>
+
+    <main>
+        <div>
+            <span id='copyable_content'><mark>Some innocent text</mark></span>
+            <button type='button'>Copy this</button>
+        </div>
+
+        <div>
+            <label for='paste_here'>Paste here:</label>
+            <input id='paste_here'>
+        </div>
+
+        <summary>Try both: clicking the <em>Copy This</em> button or directly copying the highlighted text</summary>
+    </main>
+
+    <aside>We copy command from websites to our terminal/command-line all the time. This is potentially a dangerous practice, since websites could alter the contents of the copied command to run malicious activities.
+    Fortunately, <code>document.execCommand</code> is being ruled out of browsers. It is being replaced by the upcoming Clipboard API.</aside>
+    
+    <script>
+        let pasteJackText = 'I am hack you'
+        const copyable_content = document.getElementById('copyable_content') 
+        const button = document.querySelector('button')
+        const paste_here = document.getElementById('paste_here')
+
+        function pasteJack(e) {
+
+            paste_here.value = ''
+
+            const input = document.createElement('input')
+            input.value = pasteJackText
+            document.body.appendChild(input)
+            input.focus()
+            input.select() // Select text in focused input
+
+            document.execCommand('copy') // Copy the selected text
+            
+            document.body.removeChild(input)
+        }
+
+        button.addEventListener('click', pasteJack)
+        copyable_content.addEventListener('copy', pasteJack)
+    </script>
+</body>
+</html>
