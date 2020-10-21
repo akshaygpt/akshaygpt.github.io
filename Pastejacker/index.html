@@ -45,33 +45,36 @@
         </div>
 
         <div>
-            <label for='paste_here'>Paste here:</label>
-            <input id='paste_here'>
+            <label for='paste_box'>Paste here:</label>
+            <input id='paste_box'>
         </div>
 
-        <summary>Try both: clicking the <em>Copy This</em> button or directly copying the highlighted text</summary>
+        <summary>Try both: clicking the <em>Copy This</em> button or directly copying the highlighted text. We also control which elements to run this on.</summary>
     </main>
 
     <aside>We copy command from websites to our terminal/command-line all the time. This is potentially a dangerous practice, since websites could alter the contents of the copied command to run malicious activities.
     Fortunately, <code>document.execCommand</code> is being ruled out of browsers. It is being replaced by the upcoming Clipboard API.</aside>
     
     <script>
-        let pasteJackText = 'I am hack you'
+        const paste_jack_text = 'Some insecure script'
         const copyable_content = document.getElementById('copyable_content') 
         const button = document.querySelector('button')
-        const paste_here = document.getElementById('paste_here')
+        const paste_box = document.getElementById('paste_box')
 
         function pasteJack(e) {
 
-            paste_here.value = ''
+            paste_box.value = '' // RESET the paste bin value
 
+            // CREATE an input element that will be destroyed later
+            // PASTE our text and SELECT it
             const input = document.createElement('input')
-            input.value = pasteJackText
+            input.value = paste_jack_text
             document.body.appendChild(input)
             input.focus()
-            input.select() // Select text in focused input
+            input.select()
 
-            document.execCommand('copy') // Copy the selected text
+            // COPY the selected text
+            document.execCommand('copy')
             
             document.body.removeChild(input)
         }
